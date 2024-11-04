@@ -5,8 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Incidencia_fauna extends Model
+class areas extends Model
 {
     use HasFactory;
-    public $timestamps = true;
+
+    protected $table = 'areas';
+
+    protected $fillable = [
+        'NombreArea',
+    ];
 }

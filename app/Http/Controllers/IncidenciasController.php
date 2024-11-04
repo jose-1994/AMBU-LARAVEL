@@ -10,6 +10,7 @@ use App\Models\Incidencia_seguridad;
 use App\Models\Incidencia_mantenimiento_forestal;
 use App\Models\Incidencia_sanitarios;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use App\Models\Registro;
 
 
@@ -40,18 +41,6 @@ class IncidenciasController extends Controller
     public function mostrar_fauna()
     {
         $mostrar=Incidencia_fauna::all();
-
-        $nombrePersonalizado = 'incidencias';  // Puedes cambiar este nombre según tus preferencias
-        $response = [
-            $nombrePersonalizado => $mostrar
-        ];
-        return response()->json($response);
-    }
-
-
-    public function mostrar_sanitarios()
-    {
-        $mostrar=Incidencia_sanitarios::all();
 
         $nombrePersonalizado = 'incidencias';  // Puedes cambiar este nombre según tus preferencias
         $response = [

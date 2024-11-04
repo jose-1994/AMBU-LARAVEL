@@ -12,12 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('parques', function (Blueprint $table) {
-            $table->bigIncrements('idParque');
-            $table->integer('idMunicipio');
-            $table->string('Nombre');
-            $table->timestamps();
+            $table->id(); 
+            $table->unsignedBigInteger('idMunicipio'); 
+            $table->string('NombreParque', 255);
+            $table->string('colonia', 255);
+            $table->string('codigo_postal', 20);
+            $table->string('direccion', 255);
 
-            
+            // Definir la clave foránea 
+            $table->foreign('idMunicipio')->references('id')->on('municipios');
         });
     }
 

@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('incidencia_limpieza_del_parques', function (Blueprint $table) {
-            $table->bigIncrements('idSolicitud');
-            $table->integer('idTipo');
-            $table->string('Solicitud_incidencia');
-            $table->string('Descripcion');
-            $table->timestamps();
-
+        Schema::create('perfiles', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('idArea');
+            $table->string('NombrePerfil', 255);
             
+            // Definir la clave foránea 
+            $table->foreign('idArea')->references('id')->on('areas');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('incidencia_limpieza_del_parques');
+        Schema::dropIfExists('perfiles');
     }
 };

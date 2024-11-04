@@ -18,6 +18,7 @@ class VerifyCsrfToken extends Middleware
         '/seguridad',
         '/forestal',
         '/sanitarios',
-        '/mostrarid/{id}'
+        '/mostrarid/{id}',
+        '/saveInfraestructuraReport',
     ];
 }
