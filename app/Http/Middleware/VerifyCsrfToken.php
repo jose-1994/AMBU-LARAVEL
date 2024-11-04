@@ -20,5 +20,6 @@ class VerifyCsrfToken extends Middleware
         '/sanitarios',
         '/mostrarid/{id}',
         '/saveInfraestructuraReport',
+        '/saveForestalReport',
     ];
 }

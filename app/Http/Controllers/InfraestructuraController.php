@@ -115,11 +115,11 @@ class InfraestructuraController extends Controller
                 $imageName = uniqid() . '.jpeg';
 
                 // Guardar la imagen en el almacenamiento y obtener la URL pública
-                $path = Storage::put("public/infraestructuraReport/{$imageName}", $image);
+                $path = Storage::put("public/infraestructuraReport/{$validated['folio']}/{$imageName}", $image);
 
                 if ($path) {
                     // Obtener la URL pública de la imagen
-                    $url = Storage::url("public/infraestructuraReport/{$imageName}");
+                    $url = Storage::url("public/infraestructuraReport/{$validated['folio']}/{$imageName}");
                     // Almacenar la URL de la imagen
                     $imagePaths[] = $url;
                 } else {

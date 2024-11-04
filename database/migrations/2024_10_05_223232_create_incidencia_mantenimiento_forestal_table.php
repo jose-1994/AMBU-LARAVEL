@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_parque'); // Clave foránea para la tabla parques
             $table->unsignedBigInteger('id_municipio'); // Clave foránea para la tabla municipios
             $table->unsignedBigInteger('id_user'); // Clave foránea para la tabla users (nombre del usuario)
-            $table->string('folio')->unique(); // Folio único para cada incidencia
+            $table->integer('folio')->unique(); // Folio único para cada incidencia
             $table->string('tipo', 255); // Tipo de trabajo forestal
             $table->text('descripcion'); // Descripción del reporte
             $table->json('imagenes')->nullable(); // Guardar varias imágenes en formato JSON

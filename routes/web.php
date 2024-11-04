@@ -97,9 +97,13 @@ Route::get('/mostrarid/{id}', 'App\Http\Controllers\IncidenciasController@movili
 //Extraer las Ubicaciones de parques y municipios
 Route::get('/getParques',[ParquesController::class,'getAllParques']);
 Route::get('/getMunicipios',[ParquesController::class,'getAllMunicipios']);
+
+//Extraer ultimo Folio de las tablas para la incesrcion de nuevos
 Route::get('/getFolioInfraestructura',[InfraestructuraController::class,'getLastFolio']);
 
-//Ruta para guardar un Reporte de Mantenimiento infraestructura
+Route::get('/getLastFolioForestal',[ForestalController::class,'getLastFolioForestal']);
+
+//Rutas para Guardar Incidencias
 Route::post('/saveInfraestructuraReport', [InfraestructuraController::class,'saveReportInfraestructura']);
 
-
+Route::post('/saveForestalReport', [ForestalController::class,'saveForestalReport']);
