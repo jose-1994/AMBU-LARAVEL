@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LimpiezaParquesController;
 use App\Http\Controllers\ParquesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IncidenciaFaunaController;
@@ -33,7 +34,7 @@ Route::post('/forestal', [App\Http\Controllers\IncidenciasController::class, 'fo
 Route::post('/sanitarios', [App\Http\Controllers\IncidenciasController::class, 'sanitarios'])->name('sanitarios');
 
 
- Route::get('/incidencias', 'App\Http\Controllers\IncidenciasController@mostrar');
+Route::get('/incidencias', 'App\Http\Controllers\IncidenciasController@mostrar');
 
 //ruta para ver los datos de la tabla incidencia_faunas
 Route::get('/obtenerIncidenciasFaunaConRelaciones', 'App\Http\Controllers\FaunaController@obtenerIncidenciasFaunaConRelaciones');
@@ -95,15 +96,21 @@ Route::get('/mostrarid/{id}', 'App\Http\Controllers\IncidenciasController@movili
 
 
 //Extraer las Ubicaciones de parques y municipios
-Route::get('/getParques',[ParquesController::class,'getAllParques']);
-Route::get('/getMunicipios',[ParquesController::class,'getAllMunicipios']);
+Route::get('/getParques', [ParquesController::class, 'getAllParques']);
+Route::get('/getMunicipios', [ParquesController::class, 'getAllMunicipios']);
 
 //Extraer ultimo Folio de las tablas para la incesrcion de nuevos
-Route::get('/getFolioInfraestructura',[InfraestructuraController::class,'getLastFolio']);
+Route::get('/getFolioInfraestructura', [InfraestructuraController::class, 'getLastFolio']);
 
-Route::get('/getLastFolioForestal',[ForestalController::class,'getLastFolioForestal']);
+Route::get('/getLastFolioForestal', [ForestalController::class, 'getLastFolioForestal']);
+
+Route::get('/getFolioLimpieza', [LimpiezaParquesController::class, 'getLastFolioLimpieza']);
+
+
 
 //Rutas para Guardar Incidencias
-Route::post('/saveInfraestructuraReport', [InfraestructuraController::class,'saveReportInfraestructura']);
+Route::post('/saveInfraestructuraReport', [InfraestructuraController::class, 'saveReportInfraestructura']);
 
-Route::post('/saveForestalReport', [ForestalController::class,'saveForestalReport']);
+Route::post('/saveForestalReport', [ForestalController::class, 'saveForestalReport']);
+
+Route::post('/saveLimpiezaReport', [LimpiezaParquesController::class, 'saveLimpiezaReport']);
